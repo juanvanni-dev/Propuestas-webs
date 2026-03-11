@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/propuesta-vitrina-digital.html" }
+    { "source": "/(.*)", "destination": "/OneDrive/Desktop/CICE/Propuesta Cice.html" }
   ]
 }
