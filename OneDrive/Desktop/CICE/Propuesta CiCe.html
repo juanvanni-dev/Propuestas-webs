@@ -719,8 +719,8 @@
     /* ── PRINT / PDF A4 ── */
     @media print {
       @page {
-        size: A4;
-        margin: 12mm 16mm;
+        size: A4 portrait;
+        margin: 10mm 12mm;
       }
 
       * {
@@ -730,11 +730,16 @@
         transition: none !important;
       }
 
+      html,
+      body {
+        width: 210mm;
+        font-size: 11px;
+      }
+
       body::before {
         display: none !important;
       }
 
-      /* Todas las animaciones del hero resueltas */
       .tag,
       .hero-title,
       .hero-subtitle,
@@ -751,7 +756,7 @@
 
       .hero {
         min-height: auto;
-        padding: 36px 0 28px;
+        padding: 28px 0 20px;
         page-break-after: always;
       }
 
@@ -761,50 +766,80 @@
       }
 
       .hero-title {
-        font-size: 60px;
+        font-size: 48px !important;
         letter-spacing: -1px;
       }
 
-      section {
-        padding: 28px 0;
+      .hero-subtitle {
+        font-size: 13px;
+        margin-top: 16px;
       }
 
-      /* Saltos de página entre secciones */
+      .hero-meta {
+        margin-top: 24px;
+      }
+
+      section {
+        padding: 20px 0;
+      }
+
+      .section-title {
+        font-size: 26px !important;
+        margin-bottom: 12px;
+      }
+
+      .section-body {
+        font-size: 12px;
+      }
+
       .problema {
         page-break-before: always;
-        padding-top: 24px;
+        padding-top: 16px;
       }
 
       .solucion {
         page-break-before: always;
-        padding-top: 24px;
+        padding-top: 16px;
       }
 
       .proceso {
         page-break-before: always;
-        padding-top: 24px;
+        padding-top: 16px;
       }
 
       .inversion {
         page-break-before: always;
-        padding-top: 24px;
+        padding-top: 16px;
       }
 
       .cta-section {
         page-break-before: always;
-        padding: 32px 0;
+        padding: 24px 0;
       }
 
       .pain-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 6px;
-        margin-top: 20px;
+        gap: 4px;
+        margin-top: 14px;
       }
 
       .pain-card {
-        padding: 18px;
+        padding: 14px;
         page-break-inside: avoid;
         border-left: 3px solid var(--gold) !important;
+      }
+
+      .pain-icon {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .pain-title {
+        font-size: 15px;
+      }
+
+      .pain-desc {
+        font-size: 11px;
       }
 
       .sol-layout {
@@ -817,20 +852,41 @@
       }
 
       .sol-feature {
-        margin-bottom: 16px;
-        padding-bottom: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
         page-break-inside: avoid;
       }
 
+      .sol-num {
+        font-size: 32px;
+        min-width: 36px;
+      }
+
+      .sol-text h3 {
+        font-size: 14px;
+      }
+
+      .sol-text p {
+        font-size: 11px;
+      }
+
       .timeline {
-        padding-left: 24px;
+        padding-left: 20px;
       }
 
       .tl-item {
         opacity: 1 !important;
         transform: none !important;
-        padding-bottom: 24px;
+        padding-bottom: 18px;
         page-break-inside: avoid;
+      }
+
+      .tl-title {
+        font-size: 17px;
+      }
+
+      .tl-desc {
+        font-size: 11px;
       }
 
       .inv-layout {
@@ -1194,7 +1250,7 @@
         class="btn-primary">
         Agendar una reunión
       </a>
-      <a href="mailto:juanjovanni16@gmail.com" class="btn-secondary">
+      <a href="/cdn-cgi/l/email-protection#e28897838c888d94838c8c8bd3d4a2858f838b8ecc818d8f" class="btn-secondary">
         Escribir por email
       </a>
     </div>
@@ -1206,18 +1262,10 @@
     <div class="footer-copy">Diseño & Desarrollo Web · Santa Fe, Argentina · 2026</div>
   </footer>
 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     const items = document.querySelectorAll('.tl-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 150);
-        }
-      });
-    }, { threshold: 0.2 });
-    items.forEach(item => observer.observe(item));
-  </script>
-
-</body>
-
-</html>
+          setTimeout(() => e.target.classList.
