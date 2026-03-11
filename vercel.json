@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/OneDrive/Desktop/CICE/Propuesta Cice.html" }
+    { "source": "/(.*)", "destination": "/OneDrive/Desktop/CICE/Propuesta%20CiCe.html" }
   ]
 }
