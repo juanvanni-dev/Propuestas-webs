@@ -40,7 +40,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -51,7 +50,6 @@
       opacity: 0.5;
     }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -192,7 +190,6 @@
       animation: slide 2s ease-in-out infinite;
     }
 
-    /* ── SECTION BASE ── */
     section {
       padding: 100px 60px;
     }
@@ -222,7 +219,6 @@
       max-width: 580px;
     }
 
-    /* ── PROBLEMA ── */
     .problema {
       background: var(--dark-2);
       border-top: 1px solid rgba(201, 151, 58, 0.15);
@@ -241,8 +237,6 @@
       padding: 36px;
       border-left: 3px solid transparent;
       transition: border-color 0.3s, background 0.3s;
-      position: relative;
-      overflow: hidden;
     }
 
     .pain-card:hover {
@@ -269,7 +263,6 @@
       line-height: 1.7;
     }
 
-    /* ── SOLUCIÓN ── */
     .solucion {
       background: var(--dark);
     }
@@ -418,7 +411,6 @@
       font-size: 12px;
     }
 
-    /* ── PROCESO ── */
     .proceso {
       background: var(--dark-2);
       border-top: 1px solid rgba(201, 151, 58, 0.15);
@@ -505,7 +497,6 @@
       border-radius: 2px;
     }
 
-    /* ── INVERSION ── */
     .inversion {
       background: var(--dark);
     }
@@ -597,7 +588,6 @@
       line-height: 1.7;
     }
 
-    /* ── CTA ── */
     .cta-section {
       background: var(--dark-2);
       border-top: 1px solid rgba(201, 151, 58, 0.2);
@@ -675,7 +665,6 @@
       border-color: var(--gold);
     }
 
-    /* ── FOOTER ── */
     footer {
       background: var(--dark);
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -704,7 +693,6 @@
       letter-spacing: 1px;
     }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -725,6 +713,176 @@
       50%,
       100% {
         left: 100%;
+      }
+    }
+
+    /* ── PRINT / PDF A4 ── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm 16mm;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      body::before {
+        display: none !important;
+      }
+
+      /* Todas las animaciones del hero resueltas */
+      .tag,
+      .hero-title,
+      .hero-subtitle,
+      .hero-meta,
+      .scroll-hint {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+
+      .scroll-hint {
+        display: none !important;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 36px 0 28px;
+        page-break-after: always;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 60px;
+        letter-spacing: -1px;
+      }
+
+      section {
+        padding: 28px 0;
+      }
+
+      /* Saltos de página entre secciones */
+      .problema {
+        page-break-before: always;
+        padding-top: 24px;
+      }
+
+      .solucion {
+        page-break-before: always;
+        padding-top: 24px;
+      }
+
+      .proceso {
+        page-break-before: always;
+        padding-top: 24px;
+      }
+
+      .inversion {
+        page-break-before: always;
+        padding-top: 24px;
+      }
+
+      .cta-section {
+        page-break-before: always;
+        padding: 32px 0;
+      }
+
+      .pain-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin-top: 20px;
+      }
+
+      .pain-card {
+        padding: 18px;
+        page-break-inside: avoid;
+        border-left: 3px solid var(--gold) !important;
+      }
+
+      .sol-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .mockup-box {
+        display: none !important;
+      }
+
+      .sol-feature {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        page-break-inside: avoid;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .tl-item {
+        opacity: 1 !important;
+        transform: none !important;
+        padding-bottom: 24px;
+        page-break-inside: avoid;
+      }
+
+      .inv-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .inv-main {
+        padding: 24px;
+      }
+
+      .inv-price {
+        font-size: 52px;
+      }
+
+      .inv-card {
+        padding: 16px;
+        page-break-inside: avoid;
+      }
+
+      .cta-title {
+        font-size: 34px;
+        margin: 0 0 12px 0;
+      }
+
+      .cta-sub {
+        margin: 0 0 24px 0;
+      }
+
+      .cta-section::before {
+        display: none;
+      }
+
+      .cta-section {
+        text-align: left;
+      }
+
+      .btn-primary {
+        padding: 10px 24px;
+        background: var(--gold) !important;
+        color: #0E0E0E !important;
+      }
+
+      .btn-secondary {
+        margin-left: 12px;
+        padding: 10px 24px;
+        border: 1px solid var(--gold) !important;
+        color: var(--gold) !important;
+      }
+
+      footer {
+        padding: 16px 0;
       }
     }
 
@@ -1049,7 +1207,6 @@
   </footer>
 
   <script>
-    // Intersection Observer for timeline animation
     const items = document.querySelectorAll('.tl-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
