@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/propuesta-vitrina-digital.html" }
+  ]
+}
